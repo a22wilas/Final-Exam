@@ -1,18 +1,35 @@
 import http from 'k6/http';
+import { SharedArray } from 'k6/data';
 
-// Load once (shared across VUs)
-const data = JSON.parse(open('../JSON/data.json'));
-console.log(open('../JSON/data.json'));
+// Load data once
+const data = new SharedArray('my data', function () {
+  return JSON.parse(open('../JSON/data.json'));
+});
+
+export const options = {
+  vus: 1,                         // only 1 user
+  iterations: data.length,        // run once per data item
+};
 
 export default function () {
-  const item = data[Math.floor(Math.random() * data.length)];
+  const item = data[__ITER];      // 👈 key change
 
-  const payload = JSON.stringify({
-    id: __VU + "-" + __ITER,
+  const id = __ITER;
+
+  const payloadObj = {
+    id: id,
     ...item
-  });
+  };
 
-  http.post('https://your-api.com/endpoint', payload, {
+  const payload = JSON.stringify(payloadObj);
+
+  const res = http.post('https://jsonplaceholder.typicode.com/posts', payload, {
     headers: { 'Content-Type': 'application/json' },
   });
+
+  console.log(JSON.stringify({
+    id: id,
+    status: res.status,
+    payload: payloadObj
+  }));
 }

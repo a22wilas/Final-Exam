@@ -7,12 +7,12 @@ const data = new SharedArray('my data', function () {
 });
 
 export const options = {
-  vus: 1,                         // only 1 user
-  iterations: data.length,        // run once per data item
+  vus: 3,  //number of users                       
+  iterations: data.length * 3,        
 };
 
 export default function () {
-  const item = data[__ITER];      // 👈 key change
+  const item = data[__ITER];      
 
   const id = __ITER;
 

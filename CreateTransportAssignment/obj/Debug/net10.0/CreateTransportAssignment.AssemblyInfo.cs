@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CreateTransportAssignment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d47e4e5e168786812c749048d35964cb67ba31d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+895c7061552e887bf44068c8ce231074f39f20a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CreateTransportAssignment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CreateTransportAssignment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

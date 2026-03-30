@@ -8,27 +8,28 @@ const data = new SharedArray('data', function () {
 
 // Test configuration
 export const options = {
-  vus: 1,                      // start simple (no duplicates)
-  iterations: data.length,     // send each item once
-  insecureSkipTLSVerify: true, // ignore HTTPS cert issues (localhost)
+  vus: 1,
+  iterations: data.length,
+  insecureSkipTLSVerify: true,
 };
 
 export default function () {
-  const item = data[__ITER];   // one item per iteration
+  const item = data[__ITER];
   const id = __ITER;
 
 
-const payloadObj = {
-  id: id,
-  ...item 
-};
+  const payloadObj = {
+    id: id,
+    ...item
+  };
+
   const payload = JSON.stringify(payloadObj);
 
   const startTime = new Date().toISOString();
 
   const res = http.post('http://localhost:5178/messages', payload, {
-  headers: { 'Content-Type': 'application/json' },
-});
+    headers: { 'Content-Type': 'application/json' },
+  });
 
   let responseBody = {};
   try {
@@ -37,7 +38,6 @@ const payloadObj = {
     responseBody = {};
   }
 
-  // ✅ Structured logging (for your thesis)
   console.log(JSON.stringify({
     id: id,
     sentAt: startTime,

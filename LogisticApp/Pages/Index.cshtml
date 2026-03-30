@@ -1,0 +1,31 @@
+﻿@page
+@model LogisticApp.Pages.IndexModel
+<h1 style="color: blue;">Welcome</h1>
+
+
+<form method="post">
+    <input type="text" asp-for="Name" placeholder="Enter your name" />
+    <button type="submit">Submit</button>
+    
+</form>
+
+<table>
+    <tr>
+        <th>authorityCodeField</th>
+        <th>package</th>
+    </tr>
+    <tr>
+        <td>
+            dw
+        </td>
+        <td>
+            tt
+        </td>
+    </tr>
+</table>
+
+@if (Model.Name != null)
+{
+    <p>Hello, @Model.Name!</p>
+}
+

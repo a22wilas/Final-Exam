@@ -96,3 +96,5 @@ C:\Users\William\Documents\GitHub\Final-Exam\LogisticApp\obj\Debug\net10.0\Logis
 C:\Users\William\Documents\GitHub\Final-Exam\LogisticApp\obj\Debug\net10.0\LogisticApp.genruntimeconfig.cache
 C:\Users\William\Documents\GitHub\Final-Exam\LogisticApp\obj\Debug\net10.0\ref\LogisticApp.dll
 C:\Users\William\Documents\GitHub\Final-Exam\LogisticApp\obj\Debug\net10.0\compressed\myl2vrvqj9-{0}-ectiezijo7-ectiezijo7.gz
+C:\Users\William\Documents\GitHub\Final-Exam\LogisticApp\bin\Debug\net10.0\data\TRPItems.json
+C:\Users\William\Documents\GitHub\Final-Exam\LogisticApp\bin\Debug\net10.0\TRPItems.json

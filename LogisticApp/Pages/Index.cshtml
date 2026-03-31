@@ -2,30 +2,33 @@
 @model LogisticApp.Pages.IndexModel
 <h1 style="color: blue;">Welcome</h1>
 
-
-<form method="post">
-    <input type="text" asp-for="Name" placeholder="Enter your name" />
-    <button type="submit">Submit</button>
-    
-</form>
+<p>Items count: @Model.Items.Count</p>
 
 <table>
-    <tr>
-        <th>authorityCodeField</th>
-        <th>package</th>
-    </tr>
-    <tr>
-        <td>
-            dw
-        </td>
-        <td>
-            tt
-        </td>
-    </tr>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Package</th>
+            <th>Pickup</th>
+            <th>Delivery</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>@item.assignmentIdField</td>
+            <td>@item.package</td>
+            <td>@item.pickupLocationField</td>
+            <td>@item.deliveryLocationField</td>
+        </tr>
+    }
+        <tr>
+            <td>Test</td>
+            <td>Test</td>
+            <td>Test</td>
+            <td>Test</td>
+        </tr>
+    </tbody>
 </table>
-
-@if (Model.Name != null)
-{
-    <p>Hello, @Model.Name!</p>
-}
 

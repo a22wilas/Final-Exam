@@ -1,21 +1,16 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Text.Json;
+using LogisticApp.Models;
 
 namespace LogisticApp.Pages;
 
 public class IndexModel : PageModel
 {
-    [BindProperty]
-    public string? Name { get; set; }
-    
+    public List<Item> Items { get; set; } = new();
+
     public void OnGet()
     {
-        
-    }
-
-    // Runs when form is submitted
-    public void OnPost()
-    {
-        
+        var json = System.IO.File.ReadAllText("TRPItems.json");
+        Items = JsonSerializer.Deserialize<List<Item>>(json) ?? new List<Item>();
     }
 }

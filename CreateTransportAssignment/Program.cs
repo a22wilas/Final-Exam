@@ -1,4 +1,7 @@
+using CreateTransportAssignment.Models;
+using CreateTransportAssignment.Services;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<MessageStore>();
 
 // Add OpenAPI (Swagger)
 builder.Services.AddOpenApi();
@@ -14,11 +17,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // POST endpoint to receive messages
-app.MapPost("/messages", (Message message) =>
+app.MapPost("/messages", (Message message, MessageStore store) =>
 {
     var receivedAt = DateTime.UtcNow;
 
-    Console.WriteLine($"[RECEIVED] Id={message.Id}, Package={message.Package}, Assignment Id={message.AssignmentIdField}, Time={receivedAt}");
+    store.Messages.Add(message);
+
+    Console.WriteLine($"[RECEIVED] Id={message.Id}, Package={message.Package}, Time={receivedAt}");
 
     return Results.Ok(new
     {
@@ -26,6 +31,11 @@ app.MapPost("/messages", (Message message) =>
         id = message.Id,
         receivedAt = receivedAt
     });
+});
+
+app.MapGet("/messages", (MessageStore store) =>
+{
+    return store.Messages;
 });
 
 app.Run();

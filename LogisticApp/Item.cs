@@ -2,11 +2,12 @@ namespace LogisticApp.Models;
 
 public class Item
 {
-    public string authorityCodeField { get; set; } = "";
-    public string assignmentIdField { get; set; } = "";
-    public string assignmentReferenceIdField { get; set; } = "";
-    public string package { get; set; } = "";
-    public string pickupLocationField { get; set; } = "";
-    public string deliveryLocationField { get; set; } = "";
-    public string priorityField { get; set; } = "";
+    public int Id { get; set; }
+    public string AuthorityCodeField { get; set; }
+    public string AssignmentIdField { get; set; }
+    public string AssignmentReferenceIdField { get; set; }
+    public string Package { get; set; }
+    public string PickupLocationField { get; set; }
+    public string DeliveryLocationField { get; set; }
+    public string PriorityField { get; set; }
 }

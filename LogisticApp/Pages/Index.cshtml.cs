@@ -8,9 +8,12 @@ public class IndexModel : PageModel
 {
     public List<Item> Items { get; set; } = new();
 
-    public void OnGet()
-    {
-        var json = System.IO.File.ReadAllText("TRPItems.json");
-        Items = JsonSerializer.Deserialize<List<Item>>(json) ?? new List<Item>();
-    }
+    public async Task OnGetAsync()
+{
+    using var client = new HttpClient();
+
+    var response = await client.GetStringAsync("http://localhost:5178/messages");
+
+    Items = JsonSerializer.Deserialize<List<Item>>(response) ?? new List<Item>();
+}
 }

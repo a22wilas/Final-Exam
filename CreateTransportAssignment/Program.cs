@@ -14,7 +14,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 // POST endpoint to receive messages
 app.MapPost("/messages", (Message message, MessageStore store) =>
@@ -41,14 +41,5 @@ app.MapGet("/messages", (MessageStore store) =>
 app.Run();
 
 // Data model for incoming JSON
-record Message(
-    int Id,
-    string AuthorityCodeField,
-    string AssignmentIdField,
-    string AssignmentReferenceIdField,
-    string Package,
-    string PickupLocationField,
-    string DeliveryLocationField,
-    string PriorityField
-);
+
 

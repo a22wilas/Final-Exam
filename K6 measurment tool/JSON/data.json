@@ -1,29 +1,29 @@
 [
     {
-        "authorityCodeField": "add",
-        "assignmentIdField": "1",
-        "assignmentReferenceIdField": "0",
-        "package": "1111",
-        "pickupLocationField": "Loc_001",
-        "deliveryLocationField": "Loc_002",
-        "priorityField": "8"
+        "AuthorityCodeField": "add",
+        "AssignmentIdField": "1",
+        "AssignmentReferenceIdField": "0",
+        "Package": "1111",
+        "PickupLocationField": "Loc_001",
+        "DeliveryLocationField": "Loc_002",
+        "PriorityField": "8"
     },
     {
-        "authorityCodeField": "add",
-        "assignmentIdField": "2",
-        "assignmentReferenceIdField": "0",
-        "package": "1112",
-        "pickupLocationField": "Loc_003",
-        "deliveryLocationField": "Loc_004",
-        "priorityField": "8"
+        "AuthorityCodeField": "add",
+        "AssignmentIdField": "2",
+        "AssignmentReferenceIdField": "0",
+        "Package": "1112",
+        "PickupLocationField": "Loc_003",
+        "DeliveryLocationField": "Loc_004",
+        "PriorityField": "8"
     },
     {
-        "authorityCodeField": "add",
-        "assignmentIdField": "3",
-        "assignmentReferenceIdField": "2",
-        "package": "1113",
-        "pickupLocationField": "Loc_006",
-        "deliveryLocationField": "Loc_005",
-        "priorityField": "8"
+        "AuthorityCodeField": "add",
+        "AssignmentIdField": "3",
+        "AssignmentReferenceIdField": "2",
+        "Package": "1113",
+        "PickupLocationField": "Loc_006",
+        "DeliveryLocationField": "Loc_005",
+        "PriorityField": "8"
     }
 ]

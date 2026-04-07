@@ -5,24 +5,24 @@ namespace CreateTransportAssignment.Models;
 public record Message(
     int Id,
 
-    [property: JsonPropertyName("authorityCodeField")]
+    [property: JsonPropertyName("AuthorityCodeField")]
     string AuthorityCodeField,
 
-    [property: JsonPropertyName("assignmentIdField")]
+    [property: JsonPropertyName("AssignmentIdField")]
     string AssignmentIdField,
 
-    [property: JsonPropertyName("assignmentReferenceIdField")]
+    [property: JsonPropertyName("AssignmentReferenceIdField")]
     string AssignmentReferenceIdField,
 
-    [property: JsonPropertyName("package")]
+    [property: JsonPropertyName("Package")]
     string Package,
 
-    [property: JsonPropertyName("pickupLocationField")]
+    [property: JsonPropertyName("PickupLocationField")]
     string PickupLocationField,
 
-    [property: JsonPropertyName("deliveryLocationField")]
+    [property: JsonPropertyName("DeliveryLocationField")]
     string DeliveryLocationField,
 
-    [property: JsonPropertyName("priorityField")]
+    [property: JsonPropertyName("PriorityField")]
     string PriorityField
 );

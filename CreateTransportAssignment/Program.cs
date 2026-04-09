@@ -21,25 +21,29 @@ app.MapPost("/messages", (Message message, MessageStore store) =>
 {
     var receivedAt = DateTime.UtcNow;
 
-    store.Messages.Add(message);
+    var stamped = message with
+    {
+        Id = store.Messages.Count + 1,
+        ReceivedAt = receivedAt
+    };
 
-    Console.WriteLine($"[RECEIVED] Id={message.Id}, Package={message.Package}, Time={receivedAt}");
+    store.Messages.Add(stamped);
+
+    Console.WriteLine($"[RECEIVED] Id={stamped.Id} | SentAt={stamped.SentAt:O} | ReceivedAt={receivedAt:O}");
 
     return Results.Ok(new
     {
         status = "received",
         id = message.Id,
+        sentAt = stamped.SentAt,
         receivedAt = receivedAt
     });
 });
 
-app.MapGet("/messages", (MessageStore store) =>
-{
-    return store.Messages;
-});
+app.MapGet("/messages", (MessageStore store) => store.Messages);
 
 app.Run();
 
-// Data model for incoming JSON
+
 
 

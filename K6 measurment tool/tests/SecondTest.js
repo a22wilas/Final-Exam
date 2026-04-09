@@ -1,31 +1,29 @@
 import http from 'k6/http';
 import { SharedArray } from 'k6/data';
 
-// Load JSON data once
+
 const data = new SharedArray('data', function () {
   return JSON.parse(open('../JSON/data.json'));
 });
 
-// Test configuration
 export const options = {
-  vus: 1,
-  iterations: data.length,
+  vus: 10,
+  duration: '1s',
   insecureSkipTLSVerify: true,
 };
 
 export default function () {
   const item = data[__ITER];
   const id = __ITER;
-
+  const sentAt = new Date().toISOString(); 
 
   const payloadObj = {
     id: id,
-    ...item
+    ...item,
+    SentAt: sentAt   
   };
 
   const payload = JSON.stringify(payloadObj);
-
-  const startTime = new Date().toISOString();
 
   const res = http.post('http://localhost:5178/messages', payload, {
     headers: { 'Content-Type': 'application/json' },
@@ -40,7 +38,7 @@ export default function () {
 
   console.log(JSON.stringify({
     id: id,
-    sentAt: startTime,
+    sentAt: sentAt,
     status: res.status,
     receivedAt: responseBody.receivedAt || null,
     payload: payloadObj

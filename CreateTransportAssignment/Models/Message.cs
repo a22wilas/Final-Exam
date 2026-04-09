@@ -24,5 +24,8 @@ public record Message(
     string DeliveryLocationField,
 
     [property: JsonPropertyName("PriorityField")]
-    string PriorityField
+    string PriorityField,
+
+    DateTime? SentAt,
+    DateTime? ReceivedAt 
 );

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "PjUkFaUE4sE=",
+  "dgSpecHash": "Enx0hSKyp9E=",
   "success": true,
   "projectFilePath": "C:\\Users\\William\\Documents\\GitHub\\Final-Exam\\LogisticApp\\LogisticApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\William\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512"
+  ],
   "logs": []
 }

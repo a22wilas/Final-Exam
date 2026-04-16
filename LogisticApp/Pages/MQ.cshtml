@@ -1,0 +1,42 @@
+@page
+@model LogisticApp.Pages.MQModel
+@using LogisticApp.Models
+
+<h1 style="color: green;">MQ Messages</h1>
+<p>Items count: @Model.Items.Count</p>
+
+<table border="1" cellpadding="6">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Assignment</th>
+            <th>Package</th>
+            <th>Pickup</th>
+            <th>Delivery</th>
+            <th>Priority</th>
+            <th>Sent (UTC)</th>
+            <th>Received (UTC)</th>
+            <th>Latency (ms)</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Items)
+    {
+        var latency = (item.SentAt.HasValue && item.ReceivedAt.HasValue)
+            ? (item.ReceivedAt.Value - item.SentAt.Value).TotalMilliseconds.ToString("F2")
+            : "N/A";
+
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.AssignmentIdField</td>
+            <td>@item.Package</td>
+            <td>@item.PickupLocationField</td>
+            <td>@item.DeliveryLocationField</td>
+            <td>@item.PriorityField</td>
+            <td>@item.SentAt?.ToString("yyyy-MM-dd HH:mm:ss.fff")</td>
+            <td>@item.ReceivedAt?.ToString("yyyy-MM-dd HH:mm:ss.fff")</td>
+            <td>@latency</td>
+        </tr>
+    }
+    </tbody>
+</table>

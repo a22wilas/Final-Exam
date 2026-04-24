@@ -1,22 +1,19 @@
 using CreateTransportAssignment.Models;
 using CreateTransportAssignment.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddSingleton<MessageStore>();
 
-// Add OpenAPI (Swagger)
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Enable Swagger in development
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
-//app.UseHttpsRedirection();
-
-// POST endpoint to receive messages
+// POST endpoint
 app.MapPost("/messages", (Message message, MessageStore store) =>
 {
     var receivedAt = DateTime.UtcNow;
@@ -43,7 +40,3 @@ app.MapPost("/messages", (Message message, MessageStore store) =>
 app.MapGet("/messages", (MessageStore store) => store.Messages);
 
 app.Run();
-
-
-
-

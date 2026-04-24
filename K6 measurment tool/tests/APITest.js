@@ -7,13 +7,14 @@ const data = new SharedArray('data', function () {
 });
 
 export const options = {
-  vus: 10,
-  duration: '1s',
+  vus: 1,
+  iterations: data.length,
   insecureSkipTLSVerify: true,
 };
 
 export default function () {
-  const item = data[__ITER];
+  const index = (__ITER % data.length);
+  const item = data[index];
   const id = __ITER;
   const sentAt = new Date().toISOString(); 
 

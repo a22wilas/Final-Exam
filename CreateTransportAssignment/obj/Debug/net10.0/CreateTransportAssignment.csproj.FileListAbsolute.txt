@@ -32,3 +32,6 @@ C:\Users\William\Documents\GitHub\Final-Exam\CreateTransportAssignment\obj\Debug
 C:\Users\William\Documents\GitHub\Final-Exam\CreateTransportAssignment\obj\Debug\net10.0\CreateTransportAssignment.pdb
 C:\Users\William\Documents\GitHub\Final-Exam\CreateTransportAssignment\obj\Debug\net10.0\CreateTransportAssignment.genruntimeconfig.cache
 C:\Users\William\Documents\GitHub\Final-Exam\CreateTransportAssignment\obj\Debug\net10.0\ref\CreateTransportAssignment.dll
+C:\Users\William\Documents\GitHub\Final-Exam\CreateTransportAssignment\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\William\Documents\GitHub\Final-Exam\CreateTransportAssignment\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\William\Documents\GitHub\Final-Exam\CreateTransportAssignment\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll

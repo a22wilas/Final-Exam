@@ -4,7 +4,7 @@
 
 <script src="~/js/downloadButton.js"></script>
 
-<h1 style="color: blue;">Welcome</h1>
+<h1 style="color: blue;">API Messages</h1>
 <p>Items count: @Model.Items.Count</p>
 
 @if (Model.ErrorMessage != null)
@@ -12,9 +12,9 @@
     <p style="color: red;">⚠️ @Model.ErrorMessage</p>
 }
 
-<button onclick="downloadCSV()">⬇ Download as CSV</button>
+<button onclick="downloadAPICSV()">⬇ Download as CSV</button>
 
-<table id="dataTable" border="1" cellpadding="6" cellspacing="0">
+<table id="APIdataTable" border="1" cellpadding="6" cellspacing="0">
     <thead>
         <tr>
             <th>ID</th>

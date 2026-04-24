@@ -16,16 +16,18 @@ export const options = {
 const credentials = encoding.b64encode('guest:guest');
 
 export default function () {
-  const item = data[__ITER];
+  const index = (__ITER % data.length);
+  const item = data[index];
+  const id = __ITER;
   const sentAt = new Date().toISOString();
 
   const messageBody = JSON.stringify({
+    id: id,
     ...item,
     SentAt: sentAt
   });
 
-  // RabbitMQ HTTP API requires the body to be base64 encoded
-  const payload = JSON.stringify({
+    const payload = JSON.stringify({
     properties: {},
     routing_key: "logistic_mq_messages",
     payload: encoding.b64encode(messageBody),

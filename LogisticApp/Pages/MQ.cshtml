@@ -2,10 +2,14 @@
 @model LogisticApp.Pages.MQModel
 @using LogisticApp.Models
 
+<script src="~/js/downloadButton.js"></script>
+
 <h1 style="color: green;">MQ Messages</h1>
 <p>Items count: @Model.Items.Count</p>
 
-<table border="1" cellpadding="6">
+<button onclick="downloadMQCSV()">⬇ Download as CSV</button>
+
+<table id="MQdataTable" border="1" cellpadding="6" cellspacing="0">
     <thead>
         <tr>
             <th>ID</th>

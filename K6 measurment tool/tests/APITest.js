@@ -1,14 +1,15 @@
 import http from 'k6/http';
 import { SharedArray } from 'k6/data';
 
+const VUS = 50;
 
 const data = new SharedArray('data', function () {
   return JSON.parse(open('../JSON/data.json'));
 });
 
 export const options = {
-  vus: 1,
-  iterations: data.length,
+  vus: VUS,
+  iterations: data.length * VUS,
   insecureSkipTLSVerify: true,
 };
 

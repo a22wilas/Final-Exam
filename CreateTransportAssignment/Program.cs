@@ -13,7 +13,6 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// POST endpoint
 app.MapPost("/messages", (Message message, MessageStore store) =>
 {
     var receivedAt = DateTime.UtcNow;
